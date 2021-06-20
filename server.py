@@ -12,7 +12,7 @@ TCP_PORT = 5005
 buffer_size = 1024
 
 Log_Format = "%(levelname)s %(asctime)s - %(message)s"
-logging.basicConfig(filename='LogRecord.log', level=logging.INFO,
+logging.basicConfig(filename='LogRecord.log', level=logging.DEBUG,
                     format=Log_Format)
 
 # buat socket bertipe TCP
