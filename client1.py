@@ -1,64 +1,65 @@
-# import library socket karena akan menggunakan IPC socket
+# Importing Socket
 import socket
 
-# definisikan tujuan IP server
+# Define IP Address
 TCP_IP = '26.51.151.124'
 
-# definisikan port dari server yang akan terhubung
+# Define Port
 TCP_PORT = 5005
 
-# definisikan ukuran buffer untuk mengirimkan pesan
+# Define Buffer Size
 BUFFER_SIZE = 1024
 
-# definisikan pesan yang akan disampaikan
-PESAN = input("Kirim Pesan : ")
+# Define Message
+Message = input("Send a Message: ")
 
-# buat socket TCP
+# Create TCP Socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # TCP
 
-# lakukan koneksi ke server dengan parameter IP dan Port yang telah didefinisikan
+# Connect to server with the IP parameter and Port that's defined
 s.connect((TCP_IP, TCP_PORT))
 
-# kirim pesan ke server
-s.send(PESAN.encode())
+# Send message to server
+s.send(Message.encode())
 
-# terima pesan dari server
+# Receive message from server
 data = s.recv(BUFFER_SIZE)
 
-# tampilkan pesan/reply dari server
-print("data diterima : ", data.decode())
+# Show Message from Server
+print("Message: ", data.decode())
 
-print('Ingin kirim pesan lagi ?')
-print('1. Ya')
-print('2. Tidak')
+print('Write a Message?')
+print('1. Yes')
+print('2. No')
 print('3. Show Activity Log')
-pilihan = input('pilihan :')
+Choice = input('Choice :')
 
-while pilihan == '1':
-    PESAN = input("Kirim Pesan : ")
+while Choice == '1':
+    Message = input("Send a Message : ")
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # TCP
-# lakukan koneksi ke server dengan parameter IP dan Port yang telah didefinisikan
+# Connect to server with the IP parameter and Port that's defined
     s.connect((TCP_IP, TCP_PORT))
-# kirim pesan ke server
-    s.send(PESAN.encode())
-# terima pesan dari server
+# Send message to server
+    s.send(Message.encode())
+# Receive message from server
     data = s.recv(BUFFER_SIZE)
-# tampilkan pesan/reply dari server
-    print("data diterima : ", data.decode())
-    print('Ingin kirim pesan lagi ?')
-    print('1. Ya')
-    print('2. Tidak')
-    pilihan = input('pilihan :')
-# tutup koneksi
-if pilihan == '2':
-    print('Terimakasih sayang')
+# Display Messages from Server
+    print("Message: ", data.decode())
+    print('Write a message?')
+    print('1. Yes')
+    print('2. No')
+    print('3. Show Activity Log')
+    Choice = input('No: ')
+# Close Connection
+if Choice == '2':
+    print('Thank You')
     s.close()
 
-if pilihan == '3':
+if Choice == '3':
     f = open('sample.log', 'r')
     file_contents = f.read()
     print(file_contents)
-    done = input('DONE ? (Y/N) :')
+    done = input('Done ? (Y/N) :')
     if done == 'Y':
         f.close
 s.close()
