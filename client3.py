@@ -58,14 +58,15 @@ while pilihan == '1':
     print('Ingin generate lagi ?')
     print('1. Ya')
     print('2. Tidak')
+    print('3. Show Activity Log')
     pilihan = input('pilihan :')
 # tutup koneksi
 if pilihan == '2':
-    print('Terimakasih sayang')
+    print('Thank You')
     s.close()
 
 if pilihan == '3':
-    f = open('sample.log', 'r')
+    f = open('LogRecord.log', 'r')
     file_contents = f.read()
     print(file_contents)
     done = input('DONE ? (Y/N) :')
