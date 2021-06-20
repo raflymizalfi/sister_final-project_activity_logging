@@ -25,7 +25,6 @@ print('5. Modulo')
 choice = input('Select Calculation Method: ')
 
 
-
 def addition(x, y):
     return x+y
 
