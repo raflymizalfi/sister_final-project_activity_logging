@@ -11,8 +11,9 @@ TCP_PORT = 5005
 
 buffer_size = 1024
 
-logging.basicConfig(filename='LogRecord.log', level=logging.DEBUG,
-                    format='%(asctime)s:%(levelname)s:%(name)s:%(message)s')
+Log_Format = "%(levelname)s %(asctime)s - %(message)s"
+logging.basicConfig(filename='LogRecord.log', level=logging.INFO,
+                    format=Log_Format)
 
 # buat socket bertipe TCP
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
