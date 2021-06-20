@@ -2,7 +2,7 @@
 import socket
 
 # definisikan tujuan IP server
-TCP_IP = '127.0.0.1'
+TCP_IP = '26.51.151.124'
 
 # definisikan port dari server yang akan terhubung
 TCP_PORT = 5005
@@ -16,7 +16,7 @@ last = input('Nama Belakang : ')
 
 
 def email(x, y):
-    return '{}{}@gmail.com'.format(first, last)
+    return '{}{}@gmail.com'.format(first, last).replace(" ", "")
 
 
 full = email(first, last)
