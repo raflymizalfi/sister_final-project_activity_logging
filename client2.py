@@ -1,17 +1,17 @@
-# import library socket karena akan menggunakan IPC socket
+# Import socket and logging
 import socket
 import logging
 
-# definisikan tujuan IP server
-TCP_IP = '127.0.0.1'
+# Define IP
+TCP_IP = '26.51.151.124'
 
-# definisikan port dari server yang akan terhubung
+# Define Port
 TCP_PORT = 5005
 
-buffer_size = 1024
+# Define Buffer Size
+BUFFER_SIZE = 1024
 
-
-# buat socket TCP
+# Create socket TCP
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # TCP
 
 num_1 = 10
@@ -19,24 +19,24 @@ num_2 = 2
 
 
 def add(x, y):
-    print('Penjumlahan', x, y)
+    print('Addition', x, y)
     return x+y
 
 
 add_result = add(num_1, num_2)
 
-# lakukan koneksi ke server dengan parameter IP dan Port yang telah didefinisikan
+# Connect to server with IP and Port parameter
 s.connect((TCP_IP, TCP_PORT))
 
-# kirim pesan ke server
+# Send Message To server
 s.send(str(add_result).encode())
-# terima pesan dari server
+# Receive Message from server
+data = s.recv(BUFFER_SIZE)
 
+# Display Message from Server
 
-# tampilkan pesan/reply dari server
+# Display Message from Server
+print("Data Recieved!")
 
-# tampilkan pesan/reply dari server
-print("Data diterima")
-
-# tutup koneksi
+# Close Connection
 s.close()
