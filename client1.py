@@ -56,10 +56,10 @@ if Choice == '2':
     s.close()
 
 if Choice == '3':
-    f = open('sample.log', 'r')
+    f = open('LogRecord.log', 'r')
     file_contents = f.read()
     print(file_contents)
-    done = input('Done ? (Y/N) :')
+    done = input('Done? (Y/N) :')
     if done == 'Y':
         f.close
 s.close()
