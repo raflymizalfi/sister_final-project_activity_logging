@@ -1,9 +1,8 @@
 # Importing Socket
 import socket
 
-
 # Define IP Address
-TCP_IP = '26.220.178.244'
+TCP_IP = '26.53.20.128'
 
 # Define Port
 TCP_PORT = 1024
