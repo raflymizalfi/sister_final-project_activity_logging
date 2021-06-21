@@ -1,18 +1,18 @@
-# import library socket karena akan menggunakan IPC socket
+# import socket library because it will use IPC socket
 import socket
 
-# definisikan tujuan IP server
+# Define the destination IP
 TCP_IP = '26.51.151.124'
 
-# definisikan port dari server yang akan terhubung
+# define the port of the server to connect to
 TCP_PORT = 5005
 
-# definisikan ukuran buffer untuk mengirimkan pesan
+# define buffer size for sending messages
 BUFFER_SIZE = 1024
 
-# definisikan pesan yang akan disampaikan
-first = input("Nama Depan : ")
-last = input('Nama Belakang : ')
+# define the message to be conveyed
+first = input("First Name : ")
+last = input('Last Name : ')
 
 
 def email(x, y):
@@ -21,19 +21,19 @@ def email(x, y):
 
 full = email(first, last)
 
-# buat socket TCP
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # TCP
+# create TCP socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
-# lakukan koneksi ke server dengan parameter IP dan Port yang telah didefinisikan
+# connect to the server with the defined IP and Port parameters
 s.connect((TCP_IP, TCP_PORT))
 
-# kirim pesan ke server
+# send a message to server
 s.send(full.encode())
 
-# terima pesan dari server
+# receive message from server
 data = s.recv(BUFFER_SIZE)
 
-# tampilkan pesan/reply dari server
+# show message/reply from server
 print("data diterima : ", data.decode())
 
 print('Ingin kirim pesan lagi ?')
