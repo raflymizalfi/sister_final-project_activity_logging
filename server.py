@@ -7,7 +7,7 @@ import logging
 TCP_IP = '26.51.151.124'
 
 # define the port number binding to use
-TCP_PORT = 6969
+TCP_PORT = 1024
 
 buffer_size = 1024
 
