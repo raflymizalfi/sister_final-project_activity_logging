@@ -2,7 +2,7 @@
 import socket
 
 # Define IP Address
-TCP_IP = '26.53.20.128'
+TCP_IP = '26.51.151.124'
 
 # Define Port
 TCP_PORT = 1024
