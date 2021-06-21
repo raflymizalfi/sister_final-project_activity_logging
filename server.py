@@ -31,8 +31,8 @@ print("socket is listening")
 while 1:
     # accept connection
     conn, addr = s.accept()
-    print('Mendapatkan data dari....')
-    print("Alamat: ", addr)
+    print('Receive data from....')
+    print("Address: ", addr)
     data = conn.recv(buffer_size)
     logging.debug(str(data.decode()))
     conn . close()
