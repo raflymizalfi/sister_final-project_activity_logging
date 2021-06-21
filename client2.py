@@ -6,7 +6,7 @@ import logging
 TCP_IP = '26.51.151.124'
 
 # Define Port
-TCP_PORT = 5005
+TCP_PORT = 6969
 
 # Define Buffer Size
 BUFFER_SIZE = 1024
