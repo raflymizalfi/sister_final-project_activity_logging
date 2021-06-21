@@ -3,7 +3,7 @@ import socket
 import logging
 
 # Define IP
-TCP_IP = '26.70.165.94'
+TCP_IP = '26.51.151.124'
 
 # Define Port
 TCP_PORT = 1024

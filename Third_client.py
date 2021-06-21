@@ -2,7 +2,7 @@
 import socket
 
 # Define the destination IP
-TCP_IP = '26.220.178.244'
+TCP_IP = '26.51.151.124'
 
 # define the port of the server to connect to
 TCP_PORT = 1024
