@@ -54,6 +54,7 @@ while True:
         print('Thank you for your attention!')
         s.close()
         break
+    # test
     if Choice == '3':
         f = open('LogRecord.log', 'r')
         file_contents = f.read()
