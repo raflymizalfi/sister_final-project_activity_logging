@@ -37,13 +37,4 @@ while 1:
     conn . close()
     localtime = time.asctime(time.localtime(time.time()))
 
-# menampilkan koneksi berupa IP dan port client yang terhubung menggunakan print
 
-# menerima data berdasarkan ukuran buffer
-
-# menampilkan pesan yang diterima oleh server menggunakan print
-
-# mengirim kembali data yang diterima dari client kepada client
-
-
-# tutup koneksi
