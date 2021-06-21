@@ -5,7 +5,7 @@ import socket
 TCP_IP = '26.51.151.124'
 
 # define the port of the server to connect to
-TCP_PORT = 6969
+TCP_PORT = 1024
 
 # define buffer size for sending messages
 BUFFER_SIZE = 1024
