@@ -2,7 +2,6 @@
 import socket
 import time
 import logging
-import pickle
 
 # define the binding IP address to use
 TCP_IP = '26.51.151.124'
