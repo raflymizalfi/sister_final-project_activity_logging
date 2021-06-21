@@ -62,6 +62,7 @@ while True:
             print("1. Delete Contents")
             print("2. Return")
             nextChoice = input("Choice: ")
+            f.close()
         if nextChoice == '2':
             f.close()
             print('Write a message?')
