@@ -11,15 +11,15 @@ TCP_PORT = 5005
 BUFFER_SIZE = 1024
 
 # define the message to be conveyed
-first = input("First Name : ")
-last = input('Last Name : ')
+first = input("First Name: ")
+last = input('Last Name: ')
 
 
 def email(x, y):
-    return '{}{}@gmail.com'.format(first, last).replace(" ", "")
+    return '{}{}@gmail.com'.format(x, y).replace(" ", "")
 
 
-full = email(first, last)
+Cemail = email(first, last)
 
 # create TCP socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -28,48 +28,59 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((TCP_IP, TCP_PORT))
 
 # send a message to server
-s.send(full.encode())
+s.send(Cemail.encode())
 
 # receive message from server
 data = s.recv(BUFFER_SIZE)
 
 # show message/reply from server
-print("data diterima : ", data.decode())
-
-print('Ingin kirim pesan lagi ?')
-print('1. Ya')
-print('2. Tidak')
+print("Email Created: ", data.decode())
+print('Create an Email?')
+print('1. Yes')
+print('2. No')
 print('3. Show Activity Log')
-pilihan = input('pilihan :')
+choice = input('Choice?: ')
 
-while pilihan == '1':
-    first = input("Nama Depan : ")
-    last = input('Nama Belakang : ')
-    full = email(first, last)
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # TCP
-# lakukan koneksi ke server dengan parameter IP dan Port yang telah didefinisikan
-    s.connect((TCP_IP, TCP_PORT))
-# kirim pesan ke server
-    s.send(full.encode())
-# terima pesan dari server
-    data = s.recv(BUFFER_SIZE)
-# tampilkan pesan/reply dari server
-    print("data diterima", data.decode())
-    print('Ingin generate lagi ?')
-    print('1. Ya')
-    print('2. Tidak')
-    print('3. Show Activity Log')
-    pilihan = input('pilihan :')
-# tutup koneksi
-if pilihan == '2':
-    print('Thank You')
+while 1:
+    while choice == '1':
+        first = input('First Name: ')
+        last = input('Lase Name: ')
+        Cemail = email(first, last)
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # TCP
+    # Connect to server with the IP parameter and Port that's defined
+        s.connect((TCP_IP, TCP_PORT))
+    # Send Message to Server
+        s.send(Cemail.encode())
+    # Receive Message from Server
+        data = s.recv(BUFFER_SIZE)
+    # Display Messages from Server
+        print("Email Created: ", data.decode())
+        print('Create an Email?')
+        print('1. Yes')
+        print('2. No')
+        print('3. Show Activity Log')
+        choice = input('Choice?: ')
+    # Close Connection
+    if choice == '2':
+        print("Thank you for your attention!")
+        s.close()
+        break
+    if choice == '3':
+        f = open('LogRecord.log', 'r')
+        file_contents = f.read()
+        print(file_contents)
+        done = input('Done ? (Y/N) :')
+        if done == 'Y' or done == 'y':
+            print("Thank you for your attention!")
+            f.close
+        elif done == 'N' or done == 'n':
+            print('Create an Email?')
+            print('1. Yes')
+            print('2. No')
+            print('3. Show Activity Log')
+            choice = input('Choice?: ')
+    else:
+        print("No choices available, select another choice.")
+        choice = input('Choice?: ')
     s.close()
-
-if pilihan == '3':
-    f = open('LogRecord.log', 'r')
-    file_contents = f.read()
-    print(file_contents)
-    done = input('DONE ? (Y/N) :')
-    if done == 'Y':
-        f.close
-s.close()
+    break
