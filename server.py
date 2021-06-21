@@ -4,7 +4,7 @@ import time
 import logging
 
 # define the binding IP address to use
-TCP_IP = '26.51.151.124'
+TCP_IP = '26.220.178.244'
 
 # define the port number binding to use
 TCP_PORT = 1024
