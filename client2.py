@@ -49,7 +49,7 @@ if choice in ('1', '2', '3', '4', '5'):
         result = multiply(num1, num2)
     elif choice == '4':
         result = divide(num1, num2)
-    elif choce == '5':
+    elif choice == '5':
         result = modulo(num1, num2)
 else:
     print("Invalid Input or Unavailable Calculation")
