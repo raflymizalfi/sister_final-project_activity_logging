@@ -14,15 +14,13 @@ BUFFER_SIZE = 1024
 first = input("First Name: ")
 last = input('Last Name: ')
 
-
 def email(x, y):
     return '{}{}@gmail.com'.format(x, y).replace(" ", "")
-
 
 Cemail = email(first, last)
 
 # create TCP socket
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # connect to the server with the defined IP and Port parameters
 s.connect((TCP_IP, TCP_PORT))
@@ -30,11 +28,8 @@ s.connect((TCP_IP, TCP_PORT))
 # send a message to server
 s.send(Cemail.encode())
 
-# receive message from server
-data = s.recv(BUFFER_SIZE)
-
 # show message/reply from server
-print("Email Created: ", data.decode())
+print("Email Created:", Cemail)
 print('Create an Email?')
 print('1. Yes')
 print('2. No')
@@ -42,7 +37,7 @@ print('3. Show Activity Log')
 choice = input('Choice?: ')
 
 while 1:
-    while choice == '1':
+    if choice == '1':
         first = input('First Name: ')
         last = input('Lase Name: ')
         Cemail = email(first, last)
@@ -51,10 +46,8 @@ while 1:
         s.connect((TCP_IP, TCP_PORT))
     # Send Message to Server
         s.send(Cemail.encode())
-    # Receive Message from Server
-        data = s.recv(BUFFER_SIZE)
     # Display Messages from Server
-        print("Email Created: ", data.decode())
+        print("Email Created:", Cemail)
         print('Create an Email?')
         print('1. Yes')
         print('2. No')
@@ -69,11 +62,19 @@ while 1:
         f = open('LogRecord.log', 'r')
         file_contents = f.read()
         print(file_contents)
-        done = input('Done ? (Y/N) :')
-        if done == 'Y' or done == 'y':
-            print("Thank you for your attention!")
-            f.close
-        elif done == 'N' or done == 'n':
+        print("What will you do now?")
+        print("1. Delete Contents")
+        print("2. Return")
+        nextChoice = input('Choice: ')
+        if nextChoice == '1':
+            f = open('LogRecord.log', 'w')
+            f.truncate()
+            print("Contents deleted, check your files.")
+            print("1. Delete Contents")
+            print("2. Return")
+            nextChoice = input('Choice: ')
+        if nextChoice == '2':
+            f.close()
             print('Create an Email?')
             print('1. Yes')
             print('2. No')
@@ -82,5 +83,4 @@ while 1:
     else:
         print("No choices available, select another choice.")
         choice = input('Choice?: ')
-    s.close()
-    break
+s.close()
