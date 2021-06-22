@@ -26,7 +26,7 @@ s.bind((TCP_IP, TCP_PORT))
 print("socket binded to %s" % (TCP_PORT))
 
 # the server will listen waiting until there is a connection from the client
-s.listen(1)
+s.listen(10)
 print("socket is listening")
 
 # do loop forever
@@ -43,6 +43,13 @@ while 1:
         f = open('LogRecord.log', 'w')
         f.truncate()
         f.close()
+    elif request == '3':
+        print("Log Record contents: ")
+        f = open('LogRecord.log', 'r')
+        file_contents = f.read()
+        print(file_contents)
+        f.close()
+
     conn . close()
     localtime = time.asctime(time.localtime(time.time()))
 
