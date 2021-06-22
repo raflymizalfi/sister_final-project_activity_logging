@@ -48,11 +48,7 @@ while True:
         s.close()
         break
     elif Choice == '3':
-        print("Log Record contents: ")
-        f = open('LogRecord.log', 'r')
-        file_contents = f.read()
-        print(file_contents)
-        f.close()
+        s.send(Choice.encode())
         print("What will you do now?")
         print("1. Delete Contents")
         print("2. Return")
