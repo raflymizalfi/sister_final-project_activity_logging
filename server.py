@@ -4,7 +4,7 @@ import time
 import logging
 
 # define the binding IP address to use
-TCP_IP = '26.220.178.244'
+TCP_IP = '26.51.151.124'
 
 # define the port number binding to use
 TCP_PORT = 1024
@@ -36,8 +36,16 @@ while 1:
     print('Receive data from....')
     print("Address: ", addr)
     data = conn.recv(buffer_size)
-    logging.debug(str(data.decode()))
+    request = data.decode()
+    print(request)
+    logging.debug(str(request))
+    if request == '1':
+        f = open('LogRecord.log', 'w')
+        f.truncate()
+        f.close()
     conn . close()
     localtime = time.asctime(time.localtime(time.time()))
+
+
 
 
