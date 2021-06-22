@@ -47,7 +47,7 @@ while 1:
         print("Log Record contents: ")
         f = open('LogRecord.log', 'r')
         file_contents = f.read()
-        print(file_contents)
+        s.send(file_contents.encode())
         f.close()
 
     conn . close()
