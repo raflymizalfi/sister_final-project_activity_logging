@@ -49,7 +49,8 @@ while True:
         break
     elif Choice == '3':
         s.send(Choice.encode())
-        log_data = s.recv(file_contents)
+        conn, log_data = s.accept()
+        print(log_data)
         print("What will you do now?")
         print("1. Delete Contents")
         print("2. Return")
